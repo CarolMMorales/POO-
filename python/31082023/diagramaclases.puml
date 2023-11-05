@@ -1,0 +1,65 @@
+@startuml
+
+class Persona {
+    - nombres : string
+    - apellidos : string 
+    - tipo_identificacion : string
+    - numero_identificacion : string
+
+}
+
+class Estudiante {
+}
+
+class Docente {
+    
+}
+
+class Administrativo {
+    
+}
+
+class Huesped {
+
+}
+
+
+
+class Reserva {
+    - numeroPersonas : int
+    - fechaLlegada : date 
+    - fechaSalida : date
+    - estado : string
+    - precio : float
+    - listadoHuespedes : List<Huesped>
+    - personaReserva : Persona
+    - listadoHabitaciones : List<Habitacion>
+}
+
+
+class Habitacion {
+    - numeroCama : int
+    - identificador : string
+    - numeroVentanas : int
+    - tipoHabitacion : TipoHabitacion
+    - estaDisponible: boolean
+    
+}
+
+class TipoHabitacion {
+
+}
+
+Huesped <|-- Estudiante
+Huesped <|-- Administrativo
+Huesped <|-- Docente
+TipoHabitacion *-- Habitacion
+Huesped *-- Reserva
+Persona *-- Reserva
+Habitacion *-- Reserva
+
+
+
+
+
+@enduml

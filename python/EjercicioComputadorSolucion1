@@ -1,0 +1,10 @@
+class Computador:    
+    def encender(self):        
+        return "Encender equipo";  
+        
+        def apagar(self):        
+            return "Equipo apagado";
+            
+c1 = Computador();
+print(c1.encender())
+print(c1.apagar())

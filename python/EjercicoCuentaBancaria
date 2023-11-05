@@ -1,0 +1,55 @@
+@startuml
+
+class CuentaBancaria {    
+    - cuenta: String     
+    - saldo : Double     
+    + consultarSaldo() : Double    
+    + retirarSaldo(valorRetiro : Double) : void    
+    + compararCuentas(): 
+}
+    
+class Persona {    
+    - id : int     
+    - nombre : String    
+    - apellido : String    
+    - cuenta : CuentaBancaria
+}
+    
+    Persona::cuenta *-- CuentaBancaria::cuenta
+    
+@enduml
+
+class CuentaBancaria():        
+    
+    def __init__(self):        
+        self.__cuenta = "";        
+        self.__saldo = 5000000;        
+        
+    def consultarSaldo(self):        
+        return self.__saldo;    
+        
+    def retirarSaldo(self, valorRetiro):        
+        self.__saldo = self.__saldo - valorRetiro;                
+        
+    def compararCuentas(self, cuenta1, cuenta2):        
+        if cuenta1.consultarSaldo() > cuenta2.consultarSaldo():            
+            print("Cuenta 1 tiene mas que cuenta 2");          
+        elif cuenta1.consultarSaldo() < cuenta2.consultarSaldo():            
+            print("Cuenta 1 tiene mas que cuenta 2");        
+        else:            
+            print("Cuentas iguales saldos")
+    
+class Persona:    
+    
+    def __init__(self, id, nombre, apellido, cuenta):        
+        self.__id = 0;        
+        self.__nombre = "";        
+        self.__apellido = "";        
+        self.__cuenta = None;    
+        
+cuenta1 = CuentaBancaria();
+persona1 = Persona(1,"Armando","Arias", cuenta1);
+cuenta2 = CuentaBancaria();
+persona2 = Persona(1,"Cecilia","Quiroga", cuenta1);
+cuenta2.retirarSaldo(10);
+print(cuenta2.consultarSaldo())cuenta2.compararCuentas(cuenta1, cuenta2)

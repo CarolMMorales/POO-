@@ -1,0 +1,31 @@
+@startuml
+
+title Ejemplo Liskov - FAIL
+
+class Cuadrado {
+
+    calcularArea()
+}
+note right
+Explicación principio 
+Sustitución de Liskov
+Una clase A es una clase Padre y 
+una clase B es una clase Hija
+end note
+
+class Rectangulo {
+    calcularArea()
+}
+
+
+
+Cuadrado <|-- Rectangulo
+note right
+Un rectangulo es un cuadrado -> Falso
+Porque un rectangulo tiene 
+lados diferentes.
+Se viola el principio de Sustitucion
+de Liskov
+end note
+
+@enduml

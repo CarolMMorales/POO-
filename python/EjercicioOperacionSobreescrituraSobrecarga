@@ -1,0 +1,38 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+ */
+package pkg1.sintaxis;
+/**
+ *
+ * @author uedocentes
+ */
+public class Sumatoria extends Operacion {
+    //sobreescritura (overwritting) - igual nombre, igual parametros E/S
+    public int sumar(int x, int y){
+        System.out.println("Sumatoria.sumar()");
+        return x + y;
+    }
+    
+    //sobrecarga (overload) - igual nombre, diferentes parametros E, igual parametro de salida
+    public int sumar(int x, int y, int z){
+        System.out.println("Sumatoria.sumar() - sobrecarga");
+        return x + y + z;
+    }
+    
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        Sumatoria sumatoria = new Sumatoria();
+        System.out.println(sumatoria.sumar(4, 5,6));
+    }
+    
+}
+class Operacion{
+    
+    public int sumar(int x, int y){
+        System.out.println("Operacion.sumar()");
+        return x + y;
+    }
+}

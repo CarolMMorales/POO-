@@ -1,0 +1,38 @@
+@startuml
+
+title Ejemplo Liskov - OK
+
+class FiguraGeometrica {
+
+    calcularArea()
+}
+note right
+
+Una clase A es una clase Padre 
+(asociada a una abstraccion como
+clases abstractas y/o interfaces) 
+y una clase B es una clase Hija
+end note
+
+class Rectangulo {
+    calcularArea()
+}
+
+class Cuadrado {
+    calcularArea()
+}
+
+FiguraGeometrica <|-- Rectangulo
+note right
+Un rectangulo es un figura geometrica -> Verdadero
+No se viola el principio de Sustitucion
+de Liskov
+end note
+FiguraGeometrica <|-- Cuadrado
+note right
+Un cuadrado es un figura geometrica -> Verdadero
+No se viola el principio de Sustitucion
+de Liskov
+end note
+
+@enduml

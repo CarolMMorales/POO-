@@ -1,0 +1,25 @@
+@startuml
+class IntegranteComunidadUE {
+ -nombre
+ +getNombre() : String
+ +setNombre(nombre:String)
+ +imprimirInformacion()
+}
+
+class Estudiante {
+  +imprimirInformacion()
+}
+
+class Docente {
+  +imprimirInformacion()
+}
+
+class Administrativo {
+  +imprimirInformacion()
+}
+
+
+IntegranteComunidadUE <|-- Estudiante
+IntegranteComunidadUE <|-- Docente
+IntegranteComunidadUE <|-- Administrativo
+@enduml

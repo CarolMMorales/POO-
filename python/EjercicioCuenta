@@ -1,0 +1,23 @@
+@startuml
+class Cuenta {
+ -numero : string
+ -descripcion : string
+ -saldo : float
+ +Cuenta(numero: string, descripcion : string, saldo : string)
+ +ingresar(): Any
+ +reintegrar() : Any
+ +transferir() : Any
+}
+@enduml
+
+class Cuenta:
+  def __init__(self, numero, descripcion,saldo):
+    self.__numero = numero
+    self.__descripcion = descripcion
+    self.__saldo = saldo
+  def ingresar(self):
+    print("Ingresar");
+  def reintegrar(self):
+    print("Reintegrar");
+  def transferir(self):
+    print("Transferir");

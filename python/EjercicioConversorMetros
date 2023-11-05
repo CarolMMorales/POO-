@@ -1,0 +1,27 @@
+class ConversorMetros:
+
+    METROS_A_CENTIMETROS = 100;
+    METROS_A_MILIMETROS = 1000;
+    METROS_A_PULGADAS = 39.37;
+    METROS_A_PIES = 3.28;
+
+    @staticmethod
+    def convertirMetrosACentrimetros(metros):
+        return metros * ConversorMetros.METROS_A_CENTIMETROS;
+
+    @staticmethod
+    def convertirMetrosAMilimetros(metros):
+        return metros * ConversorMetros.METROS_A_MILIMETROS;
+
+    @staticmethod
+    def convertirMetrosAPulgadas(metros):
+        return metros * ConversorMetros.METROS_A_PULGADAS;
+
+    @staticmethod
+    def convertirMetrosAPies(metros):
+        return metros * ConversorMetros.METROS_A_PIES;
+
+print(ConversorMetros.convertirMetrosACentrimetros(3.5));
+print(ConversorMetros.convertirMetrosAMilimetros(3.5));
+print(ConversorMetros.convertirMetrosAPulgadas(3.5));
+print(ConversorMetros.convertirMetrosAPies(3.5));

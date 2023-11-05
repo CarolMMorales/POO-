@@ -1,0 +1,14 @@
+class Tablero:    
+
+  @staticmethod    
+  def permitirEdicion():        
+    print("Este tablero puede ser editado");
+
+class UtileriaCadenas():       
+
+  @staticmethod    
+  def convertirMayuscular(texto):        
+    return texto.upper();
+
+print(UtileriaCadenas.convertirMayuscular("uniempresarial"))
+#Tablero.permitirEdicion();

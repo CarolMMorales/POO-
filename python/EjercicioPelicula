@@ -1,0 +1,46 @@
+class Pelicula():
+    def __init__(self, nombre, director, genero, duracion, anio, calificacion):     
+        self.__nombre = nombre;
+        self.__genero = genero;
+        self.__director = director;
+        self.__duracion = duracion;
+        self.__anio = anio;
+        self.__calificacion = calificacion;
+    
+    def obtenerNombre(self):
+        return self.__nombre;
+
+    def esPeliculaEpica(self):
+        respuesta = False;
+        if self.__duracion > 3:
+            respuesta = True
+    
+        return respuesta;
+
+    def calcularValoracion(self):
+        respuesta = ""
+        esMuyMala = self.__calificacion >=0 and self.__calificacion < 2;
+        esMala = self.__calificacion >= 2 and self.__calificacion < 5;
+        esRegular = self.__calificacion >= 5 and self.__calificacion < 7;
+        esBuena = self.__calificacion >= 7 and self.__calificacion < 8;
+        esExcelente = self.__calificacion >= 8 and self.__calificacion <= 10;
+
+        if esMuyMala :
+            respuesta = "Muy mala";
+        elif esMala:
+            respuesta = "Mala";
+        elif esRegular:
+            respuesta = "Regular";
+        elif esBuena:
+            respuesta = "Buena";    
+        elif esExcelente:
+            respuesta = "Excelente";
+
+        return respuesta;
+
+pelicula1 = Pelicula("Gandhi", "Drama",  "Rircar", 191, "1982", 8.1);
+pelicula2 = Pelicula("Thor", "Accion",  "Kenneth", 115, "2011", 7);
+listadoPeliculas = [pelicula1,pelicula2]
+
+for pelicula in listadoPeliculas:
+    print(pelicula.obtenerNombre() + " - " + pelicula.calcularValoracion() + " " + str(pelicula.esPeliculaEpica()));

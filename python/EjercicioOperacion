@@ -1,0 +1,10 @@
+class Operacion:
+    def sumar(self, x, y):
+        print("Operacion:sumar")
+        return x + y;
+class Sumatoria(Operacion):
+    def sumar(self, x, y):
+        print("Sumatoria:sumar")
+        return x + y;
+operacion = Sumatoria();
+operacion.sumar(4,5);

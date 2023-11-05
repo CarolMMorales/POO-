@@ -1,0 +1,33 @@
+class Tablero:  
+    
+    @staticmethod    
+    def permitirEdicion():        
+        print("Este tablero puede ser editado");
+        
+        class UtileriaCadenas(): 
+            
+            cadena = "valor";    
+            contadorInstancias = 0; 
+            
+            def __init__(self):        
+                UtileriaCadenas.contadorInstancias += 1;        
+                print("Instancia")   
+                
+                def convertirMinuscula(self, texto):        
+                    return texto.lower();
+                    
+                @staticmethod    
+                    def convertirMayuscular(texto):        
+                        print(UtileriaCadenas.cadena);        
+                        return texto.upper();    
+                        
+                @staticmethod    
+                    def contarNumeroInstancias():        
+                        return UtileriaCadenas.contadorInstancias;
+                        
+    print(UtileriaCadenas.convertirMayuscular("uniempresarial"))
+    instancia1 = UtileriaCadenas()
+    instancia2 = UtileriaCadenas()
+    instancia3 = UtileriaCadenas()
+    print("Numero instancias : " + str(UtileriaCadenas.contarNumeroInstancias()));
+    #Tablero.permitirEdicion();

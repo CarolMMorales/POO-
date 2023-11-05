@@ -1,0 +1,28 @@
+@startuml
+class Contador {
+ -cuenta : integer
+ +Contador(cuenta: integer)
+ +incrementar(): Any
+ +decrementar() : Any
+}
+@enduml
+
+class Contador:
+  def __init__(self, cuenta):
+    self.__cuenta = cuenta;
+  def incrementar(self):
+    #self.__cuenta = self.__cuenta + 1;
+    self.__cuenta += 1;
+  def decrementar(self):
+    #self._cuenta -= 1;
+    self.__cuenta = self.__cuenta - 1;
+  def getCuenta(self):
+    return self.__cuenta;
+
+contador = Contador(1);
+print(contador.getCuenta())
+contador.incrementar();
+contador.incrementar();
+print(contador.getCuenta())
+contador.decrementar();
+print(contador.getCuenta())

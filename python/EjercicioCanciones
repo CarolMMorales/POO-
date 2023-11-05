@@ -1,0 +1,41 @@
+class Cancion():
+    def __init__(self, nc, c, m):
+        self.__nombre_cancion = nc;
+        self.__cantante = c;
+        self.__minutos = m;
+
+    def getNombreCancion(self):
+        return self.__nombre_cancion;
+
+class ReproductorSpotify:
+
+    listadoCanciones = [];
+    contadorCanciones = 0;
+
+    def agregarCancion(nuevaCancion: Cancion):
+        ReproductorSpotify.listadoCanciones.append(nuevaCancion);
+
+    def eliminarCancion(cancionAEliminar : Cancion):
+        ReproductorSpotify.listadoCanciones.remove(cancionAEliminar);
+
+    def ejecutarCancion(cancionAEjecutar: Cancion):
+        cancionEncontrada = None;
+
+        for cancionlista in ReproductorSpotify.listadoCanciones:
+            if cancionlista.getNombreCancion() == cancionAEjecutar.getNombreCancion():
+                cancionEncontrada = cancionlista; 
+
+        return cancionEncontrada.getNombreCancion();
+
+    def obtenerListadoCanciones():
+        for cancionlista in ReproductorSpotify.listadoCanciones:
+            print("" + cancionlista.getNombreCancion());
+
+cancion1 = Cancion("Angels", "Robbie Wiliams", "4:33");
+cancion2 = Cancion("November Rain", "Guns & Rose", "7:00");
+ReproductorSpotify.agregarCancion(cancion1);
+print("Cancion ejecutada " + ReproductorSpotify.ejecutarCancion( cancion1));
+print(ReproductorSpotify.agregarCancion(cancion2));
+print("Listado canciones")
+ReproductorSpotify.obtenerListadoCanciones();
+ReproductorSpotify.eliminarCancion(cancion1);

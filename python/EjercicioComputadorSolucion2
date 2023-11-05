@@ -1,0 +1,11 @@
+class Computador:    
+    @staticmethod    
+    def encender():        
+        return "Encender equipo";        
+        
+        
+    def apagar():        
+        return "Equipo apagado";
+            
+print(Computador.encender())
+print(Computador.apagar())

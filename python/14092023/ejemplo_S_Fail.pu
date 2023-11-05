@@ -1,0 +1,14 @@
+@startuml
+
+class Aritmetica {
+
+    + sumar(x : integer, y : integer)
+    + restar(x : integer, y : integer)
+    + multiplicar(x : integer, y : integer)
+    + dividir(x : integer, y : integer)
+    - imprimirFormatoMensaje(mensaje : str)
+    - convertirDolarAPesos(moneda: str)
+
+}
+
+@enduml

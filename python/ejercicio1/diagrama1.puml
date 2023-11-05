@@ -1,0 +1,48 @@
+@startuml
+
+title Diagrama de secuencia: Ejercicio 1
+
+autoactivate on
+autonumber
+actor "Usuario/Programador/Cliente" as usuario
+boundary "ejercicio1.py::ProgramacionOperaciones" as programacion_operaciones
+control "ejercicio1.py::Operacion" as operacion
+control "operaciones.py::Suma" as suma
+control "operaciones.py::Resta" as resta
+control "operaciones.py::Multiplicacion" as multiplicacion
+control "ejercicio1.py::Division" as division
+
+usuario -> programacion_operaciones: calcularOperaciones()
+note right
+Ejemplo: diagrama de secuencia para ver invocaciones de métodos
+end note
+programacion_operaciones -> suma: Suma()
+suma --> programacion_operaciones:ok
+programacion_operaciones -> resta: Resta()
+resta --> programacion_operaciones:ok
+programacion_operaciones -> multiplicacion: Multiplicacion()
+multiplicacion --> programacion_operaciones:ok
+programacion_operaciones -> division: Division()
+division --> programacion_operaciones: ok
+note right
+Ejemplo: Se crea una lista de operaciones para ser invocada por cada instancia
+end note
+alt listaOperaciones > 0:
+note right
+Si la lista de operaciones es mayor a cero 
+se aplica Polimorfismo mediante
+una estructura repetición for llamando 
+al método calcular de cada objeto creado
+end note
+programacion_operaciones -> suma: calcular(x:double, y:double)
+suma --> programacion_operaciones:ok
+programacion_operaciones -> resta: calcular(x:double, y:double)
+resta --> programacion_operaciones:ok
+programacion_operaciones -> multiplicacion: calcular(x:double, y:double)
+multiplicacion --> programacion_operaciones:ok
+programacion_operaciones -> division: calcular(x:double, y:double)
+division --> programacion_operaciones: ok
+programacion_operaciones --> usuario: Los valores de la operacion ...
+end 
+
+@enduml

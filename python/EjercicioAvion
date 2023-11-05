@@ -1,0 +1,49 @@
+class Avion:
+
+    def __init__(self):
+        self.__fabricante = "";
+        self.__numeroMotores = 0;
+
+    def setFabricante(self, f):
+        self.__fabricante = f;
+
+    def getFabricante(self):
+        return self.__fabricante;
+
+    def setNumeroMotores(self, n):
+        self.__numeroMotores = n;
+
+    def getNumeroMotores(self):
+        return self.__numeroMotores;
+
+class VerificadorAviones():
+
+    @staticmethod
+    def imprimirFabricante(avion: Avion):
+        return avion.getFabricante()
+        
+
+    @staticmethod
+    def compararAvion(avion1: Avion, avion2: Avion):
+        mensaje = "";
+        if avion1.getNumeroMotores() > avion2.getNumeroMotores():
+            mensaje = "Avion 1 tiene más motores que Avion 2";
+        elif avion1.getNumeroMotores() < avion2.getNumeroMotores():
+            mensaje = "Avion 2 tiene más motores que Avion 1";
+        else:
+            mensaje = "Ambos aviones tienen el mismo motor";
+        return mensaje;
+#Cliente
+a1 = Avion()
+fabricanteAvion1 = input("Fabricante avion 1: ");
+numeroMotoresAvion1 = int(input("No. motores avion1: "))
+a1.setFabricante(fabricanteAvion1);
+a1.setNumeroMotores(numeroMotoresAvion1);
+
+a2 = Avion()
+a2.setFabricante(input("Fabricante avion 2: "));
+a2.setNumeroMotores(int(input("No. motores avion1: ")));
+
+print(VerificadorAviones.compararAvion(a1, a2));
+print(VerificadorAviones.imprimirFabricante(a1))
+print(VerificadorAviones.imprimirFabricante(a2))

@@ -1,0 +1,25 @@
+@startuml
+class Vehiculo {
+ -marca 
+ -modelo
+ -anio
+ +getMarca() : String
+ +setMarca(nombre:String)
+ +getModelo() : String
+ +setModelo(modelo:String)
+ +imprimirInformacion()
+}
+
+class Carro {
+  +imprimirInformacion()
+}
+
+class Bicicleta {
+  +imprimirInformacion()
+}
+
+
+Vehiculo <|-- Carro
+Vehiculo <|-- Bicicleta
+
+@enduml

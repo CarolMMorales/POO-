@@ -1,0 +1,60 @@
+class Vehiculo():    
+    
+    def __init__(self, modelo, marca, anio, precio, tipo_vehiculo):        
+        self.__modelo = modelo;        
+        self.__marca = marca;        
+        self.__anio = anio;        
+        self.__precio = precio;        
+        self.__tipo_vehiculo = tipo_vehiculo;    
+        
+    def obtenerInformacion(self):        
+        return "Informacion vehiculo:\nMarca:\t" + self.__marca + "\nModelo:\t" + self.__modelo + "\nPrecio:\t"  + str(self.__precio);    
+        
+    def obtenerPrecio(self):        
+        return self.__precio;
+        
+class ComparacionVehiculo:    
+    
+    listadoVehiculos = [];#lista de tipo estático (Global a la clase)  
+    
+    @staticmethod    
+    def definirListadoVehiculos(listadoVehiculos):        
+        ComparacionVehiculo.listadoVehiculos = listadoVehiculos;    
+        
+    @staticmethod    
+    def obtenerVehiculoMasCostoso():  
+        
+        valorVehiculoMasCosto = 0;        
+        vehiculoMasCostoso = Vehiculo("","","",0.0,"");        
+    
+        for vehiculo in ComparacionVehiculo.listadoVehiculos:           
+            if vehiculo.obtenerPrecio() > valorVehiculoMasCosto:                valorVehiculoMasCosto = vehiculo.obtenerPrecio();                 vehiculoMasCostoso = vehiculo;        
+            
+            return vehiculoMasCostoso.obtenerInformacion();       
+            
+    @staticmethod        
+    def obtenerVehiculoMenorCostoso():        
+        valorVehiculoMenosCosto = 99999999999;        
+        vehiculoMenosCostoso = Vehiculo("","","",0.0,"");    
+            
+        for vehiculo in ComparacionVehiculo.listadoVehiculos:            
+            if vehiculo.obtenerPrecio() < valorVehiculoMenosCosto:                valorVehiculoMenosCosto = vehiculo.obtenerPrecio();           vehiculoMenosCostoso = vehiculo;        
+                
+        return vehiculoMenosCostoso.obtenerInformacion();     
+            
+    def obtenerCantidadVehiculosPorTipo(tipoVehiculo):        
+        pass;
+        
+        
+#Vehiculos
+#self, modelo, marca, anio, precio, tipo_vehiculo
+renault_oroch_zen = Vehiculo("Oroch Zen 4x4", "Renault","2023", 108000000, "vans");
+toyota_hilux_chasis = Vehiculo("Hilux 2.7 4x2 Chasís", "Toyota","2023", 123000000, "vans");
+chevrolet_joy_nb = Vehiculo("Joy NB", "Chevrolet","2023", 65000000, "automovil");
+listadoVeh = [toyota_hilux_chasis,chevrolet_joy_nb,renault_oroch_zen];
+ComparacionVehiculo.definirListadoVehiculos(listadoVeh);
+print(ComparacionVehiculo.obtenerVehiculoMasCostoso());
+print(ComparacionVehiculo.obtenerVehiculoMenorCostoso());
+print("Imprimir usando Lambdas")listadoResultado = list(filter(lambda vehiculo : vehiculo.obtenerPrecio() < 100000000, listadoVeh));
+for veh in listadoResultado:    
+    print(veh.obtenerInformacion());

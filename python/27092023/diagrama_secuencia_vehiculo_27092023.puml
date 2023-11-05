@@ -1,0 +1,46 @@
+@startuml
+
+autonumber
+
+actor "Estudiante Uniempresarial" as estudiante
+boundary "modulo2.py::CLIENTE" as cliente #green
+control "modulo2.py::FabricaVehiculos" as fabricaVehiculos
+control "modulo2.py::Vehiculo" as vehiculo 
+control "modulo2.py::Moto" as moto
+
+
+estudiante -> cliente: cliente
+cliente -> fabricaVehiculos: FabricaVehiculos() <<sync>>
+fabricaVehiculos -> fabricaVehiculos: listadoVehiculos = []
+fabricaVehiculos -> cliente : return sucursalPA
+cliente -> fabricaVehiculos: inicializarListadoVehiculos()
+alt numeroVehiculos > 0
+fabricaVehiculos -> vehiculo: Vehiculo()
+vehiculo --> fabricaVehiculos: ok
+end
+note right
+Por cada vehiculo a crear
+se crea un constructor
+end note
+fabricaVehiculos -> cliente: ok listadoVehiculos
+cliente -> fabricaVehiculos: obtenerVehiculoMasCostoso();
+fabricaVehiculos -> vehiculo: new Vehiculo()
+vehiculo -> fabricaVehiculos: return vehiculo
+fabricaVehiculos -> cliente: return vehiculoMasCostoso
+cliente -> fabricaVehiculos: obtenerVehiculoMenosCostoso();
+fabricaVehiculos -> vehiculo: new Vehiculo()
+vehiculo -> fabricaVehiculos: return vehiculo
+fabricaVehiculos -> cliente: return vehiculoMenosCostoso
+cliente -> fabricaVehiculos: obtenerMarcaMasVendida()
+fabricaVehiculos -> fabricaVehiculos: generarListadoVehiculosVendidos()
+fabricaVehiculos -> fabricaVehiculos: listadoVehiculos 
+fabricaVehiculos -> cliente: return "La marca mas vendida fue "
+cliente -> fabricaVehiculos: obtenerMarcaMenosVendida()
+fabricaVehiculos -> fabricaVehiculos: generarListadoVehiculosVendidos()
+fabricaVehiculos -> fabricaVehiculos: listadoVehiculos 
+fabricaVehiculos -> cliente: return "La marca menos vendida fue "
+cliente --> estudiante
+
+
+
+@enduml
